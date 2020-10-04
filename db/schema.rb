@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_122553) do
+ActiveRecord::Schema.define(version: 2020_10_03_155014) do
+
+  create_table "event_comments", force: :cascade do |t|
+    t.integer "participant_id", null: false
+    t.text "comment", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["participant_id"], name: "index_event_comments_on_participant_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer "participant_id", null: false
+    t.datetime "date_and_time", null: false
+    t.text "event_name", null: false
+    t.string "image_id"
+    t.boolean "is_active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["participant_id"], name: "index_events_on_participant_id"
+  end
 
   create_table "organizers", force: :cascade do |t|
     t.string "email", default: "", null: false
