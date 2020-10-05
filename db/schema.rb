@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_155014) do
+ActiveRecord::Schema.define(version: 2020_10_04_030030) do
 
   create_table "event_comments", force: :cascade do |t|
     t.integer "participant_id", null: false
@@ -21,9 +21,10 @@ ActiveRecord::Schema.define(version: 2020_10_03_155014) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "participant_id", null: false
+    t.integer "participant_id"
     t.datetime "date_and_time", null: false
-    t.text "event_name", null: false
+    t.string "event_name", null: false
+    t.text "content", null: false
     t.string "image_id"
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
@@ -56,6 +57,16 @@ ActiveRecord::Schema.define(version: 2020_10_03_155014) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_participants_on_email", unique: true
     t.index ["reset_password_token"], name: "index_participants_on_reset_password_token", unique: true
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer "participant_id", null: false
+    t.integer "event_id", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_reservations_on_event_id"
+    t.index ["participant_id"], name: "index_reservations_on_participant_id"
   end
 
 end
