@@ -21,6 +21,19 @@ class Organizers::EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    if@event.update(event_params)
+        redirect_to organizers_event_path(@event.id)
+    else
+        redirect_back(fallback_location: root_path)
+    end
+  end
+
   private
   def event_params
     params.require(:event).permit(:participant_id, :date_and_time, :event_name, :image, :is_active, :content)
