@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   }
 
   namespace :organizers do
+    root "events#index"
     resources :events
+    resources :participants
   end
 
 end

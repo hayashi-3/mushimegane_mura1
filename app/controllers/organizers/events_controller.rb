@@ -10,11 +10,11 @@ class Organizers::EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-   if @event.save
+  if @event.save
     redirect_to organizers_event_path(@event.id)
-   else
+  else
     redirect_back(fallback_location: root_path)
-   end
+  end
   end
   
   def show
@@ -27,11 +27,11 @@ class Organizers::EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if@event.update(event_params)
-        redirect_to organizers_event_path(@event.id)
-    else
-        redirect_back(fallback_location: root_path)
-    end
+  if@event.update(event_params)
+    redirect_to organizers_event_path(@event.id)
+  else
+    redirect_back(fallback_location: root_path)
+  end
   end
 
   private
