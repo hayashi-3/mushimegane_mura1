@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      .participantName {
+        font-weight: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2><%= @participant.name %> 様</h2>
+    <div>
+      <ul>
+        <li>
+        この度はイベントにご参加いただき、誠にありがとうございます。<br>
+    　　　　イベント参加日時になりましたら下記URLよりご参加をお願いいたします。
+        </li>
+        <li>**zoomのURL**</li>
+        <li>当日は<%= @participant.nickname %>様とお会いできることを楽しみにしております。</li>
+        <li>※万が一、参加をキャンセルされる場合は下記のアドレスにご連絡をお願いいたします。</li>
+        <li>無断でキャンセルされた場合は、次回以降のイベント参加を考慮させていただく可能性がございますので<br>
+        あらかじめご了承くださいませ。</li>
+        <li>**アドレス**</li>
+        <li>=================================</li>
+        <li>虫めがね村　村長</li>
+        <li>=================================</li>
+      </ul>
+    </div>
+  </body>
+</html>
