@@ -10,8 +10,15 @@ Rails.application.routes.draw do
 
   namespace :organizers do
     root "events#index"
-    resources :events
-    resources :participants
+    resources :events, :participants, :reservations
+  end
+
+  scope module: :public do
+    root 'homes#top'
+    get 'about' => 'homes#about'
+    resources :events do
+      resource :reservation, only: [:edit, :update]
+    end
   end
 
 end

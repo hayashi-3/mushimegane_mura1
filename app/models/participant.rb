@@ -5,5 +5,5 @@ class Participant < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :event
-
+  has_many :reservations, dependent: :destroy
 end
