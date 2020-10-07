@@ -1,2 +1,0 @@
-module Organizers::EventsHelper
-end
