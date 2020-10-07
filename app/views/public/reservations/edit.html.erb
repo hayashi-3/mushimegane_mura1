@@ -11,7 +11,7 @@
         <th>開催日時:</th><td><%= l @event.date_and_time %></td>
       </tr>
     </table> 　　　　
-    <%= form_with model: @event, url: organizers_event_path(@event.id), local: true do |f| %>
+    <%= form_with(model: [@event, @reservation], local: true, url: {controller: 'reservations', action: 'edit'},) do |f| %>
 
         <!-- 開催ステータス -->
         <div class="form-group">
