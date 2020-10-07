@@ -18,7 +18,6 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
     resources :events do
       resource :reservation, only: [:edit, :update]
-      post 'reservations/confirm' => 'reservations#confirm'
     end
   end
 

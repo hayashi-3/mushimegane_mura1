@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(version: 2020_10_06_090936) do
   create_table "reservations", force: :cascade do |t|
     t.integer "participant_id", null: false
     t.integer "event_id", null: false
-    t.integer "number_of_reservations"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
